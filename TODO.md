@@ -8,3 +8,8 @@ hmness TODO
 * Add a persistent bar on top of the pages
 * Set up user login/logout interface
 * Allow users to log in via Google, Facebook
+
+Deployment tasks
+================
+
+* Change SECRET_KEY in ```settings.py```
