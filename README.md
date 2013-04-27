@@ -29,7 +29,7 @@ python manage.py runserver
 ```
 You can then direct your browser to `localhost:8000`. If you are using a remote machine, add `0.0.0.0:8000` at the end of the command above to allow external access.
 
-This repository includes a sample database. To access the administrator features use username 'admin' and password 'test.
+This repository includes a sample database. To access the administrator features use username ```admin``` and password ```test```.
 
 (TODO: Write a brief note on setting up a testing/development environment.)
 

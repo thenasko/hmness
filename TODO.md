@@ -1,7 +1,6 @@
 hmness TODO
 ===========
 
-* Add admin interface
 * Add south for database migration
 * Add bootstrap support
 * Configure static files support
