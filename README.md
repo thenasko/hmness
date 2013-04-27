@@ -29,4 +29,4 @@ You can then direct your browser to `localhost:8000`. If you are using a remote 
 
 (TODO: Write a brief note on setting up a testing/development environment.)
 
-See (our TODO list)[TODO.md] for tasks we would like to accomplish.
+See [our TODO list](TODO.md) for tasks we would like to accomplish.
