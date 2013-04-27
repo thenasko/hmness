@@ -14,8 +14,10 @@ Technical setup
 The current prerequisites of the project are
 * git
 * python-sqlite (or other database engine)
+* python-pip
 * python-django
 * python-django-south
+* django-bootstrap-toolkit (to install use ```pip install django-bootstrap-toolkit```)
 
 Use the following command to check out the repository.
 
