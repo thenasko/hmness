@@ -13,7 +13,9 @@ Technical setup
 
 The current prerequisites of the project are
 * git
+* python-sqlite (or other database engine)
 * python-django
+* python-django-south
 
 Use the following command to check out the repository.
 
@@ -26,6 +28,8 @@ To start the application change to `hmness-project/hmness` and run
 python manage.py runserver
 ```
 You can then direct your browser to `localhost:8000`. If you are using a remote machine, add `0.0.0.0:8000` at the end of the command above to allow external access.
+
+This repository includes a sample database. To access the administrator features use username 'admin' and password 'test.
 
 (TODO: Write a brief note on setting up a testing/development environment.)
 
