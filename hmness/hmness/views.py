@@ -11,3 +11,9 @@ def contact(request):
         'active_page': 'contact',
         }
     return render(request, "contact.html", context)
+
+def about(request):
+    context = {
+        'active_page': 'about',
+        }
+    return render(request, "about.html", context)
