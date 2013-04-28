@@ -7,6 +7,7 @@ admin.autodiscover()
 urlpatterns = patterns('',
     # Examples:
     url(r'^$', 'hmness.views.home', name='home'),
+    url(r'^contact$', 'hmness.views.contact', name='contact'),
     # url(r'^hmness/', include('hmness.foo.urls')),
 
     # Uncomment the admin/doc line below to enable admin documentation:
