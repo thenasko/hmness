@@ -130,8 +130,12 @@ INSTALLED_APPS = (
     'django.contrib.admin',
     # Uncomment the next line to enable admin documentation:
     # 'django.contrib.admindocs',
+    # Django south used for database migration
     'south',
+    # A bootstrap application for Django
     'bootstrap_toolkit',
+    # hmness users application
+    'users',
 )
 
 # A sample logging configuration. The only tangible logging
@@ -162,3 +166,6 @@ LOGGING = {
         },
     }
 }
+
+# Authentication settings
+AUTH_PROFILE_MODULE = 'auth.UserProfile'
