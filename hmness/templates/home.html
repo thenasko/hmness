@@ -6,6 +6,13 @@
     <h1>
       Welcome to hmness!
     </h1>
+
+		{% if user.is_authenticated %}
+		<p>Welcome, <b>{{ user }}</b>!</p>
+		<p>Email: {{ user.email }}</p>
+		{% else %}
+		You are not logged in!
+		{% endif %}
   </div>
 </div>
 {% endblock %}
