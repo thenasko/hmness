@@ -6,6 +6,7 @@ hmness TODO
 * Set up user login/logout interface
 * Create a dedicated login/signup form
 * Create a fogot password form/mechanism
+* Move the authentication code to the users app
 * Allow users to log in via Google, Facebook
 * Add [FontAwesome](http://fortawesome.github.io/Font-Awesome/) integration in order to access a wider set of icons in various sizes
 
