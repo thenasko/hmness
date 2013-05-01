@@ -1,5 +1,8 @@
-from django.shortcuts import redirect
-import django.contrib.auth as auth
+from django.shortcuts import render, redirect
+import django.contrib.auth as django_auth
+from django.contrib import messages
+
+from users.forms import LoginForm
 
 def login(request):
     if (request.POST and
@@ -7,19 +10,30 @@ def login(request):
         'password' in request.POST):
         username = request.POST['username']
         password = request.POST['password']
-        user = auth.authenticate(username=username,
-                                 password=password)
-        if user is None:
-            # TODO: Add a 'invalid login' error message
-            return redirect('home');
-        else:
-            auth.login(request, user)
-            # TODO: Redirect to the page this came from
-            return redirect('home');
+        user = django_auth.authenticate(username=username,
+                                        password=password)
     else:
-        # TODO: Add a 'invalid login' error message
+        user = None
+
+    if user is None:
+        messages.error(request,
+                       'The username or password you provided does not match our records.')
+        return redirect('auth');
+    else:
+        django_auth.login(request, user)
+        # TODO: Redirect to the page this came from
         return redirect('home');
 
 def logout(request):
-    auth.logout(request)
+    django_auth.logout(request)
     return redirect('home')
+
+def auth(request):
+    if request.user.is_authenticated():
+        return redirect('home')
+
+    context = {
+        'active_page': '',
+        'loginform': LoginForm,
+        }
+    return render(request, "auth.html", context)

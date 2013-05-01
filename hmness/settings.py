@@ -1,5 +1,6 @@
 import os
 import django
+import users
 
 # Django settings for hmness project.
 
@@ -118,6 +119,7 @@ TEMPLATE_DIRS = (
     # Always use forward slashes, even on Windows.
     # Don't forget to use absolute paths, not relative paths.
     os.path.join(SITE_ROOT, 'templates'),
+    os.path.join(users.__path__[0], 'templates'),
 )
 
 INSTALLED_APPS = (
@@ -169,3 +171,9 @@ LOGGING = {
 
 # Authentication settings
 AUTH_PROFILE_MODULE = 'auth.UserProfile'
+
+# Template context preprocessors
+TEMPLATE_CONTEXT_PROCESSORS = (
+    'django.contrib.auth.context_processors.auth',
+    'django.contrib.messages.context_processors.messages',
+)
