@@ -1,5 +1,12 @@
 {% extends "base.html" %}
 
+{% load staticfiles %}
+
+{% block head %}
+<link rel="stylesheet" href="{% static 'bootstrap-rowlink.min.css' %}">
+<script src="{% static 'bootstrap-rowlink.min.js' %}"></script>
+{% endblock %}
+
 {% block content %}
 <div class="row">
   <div class="span12">
@@ -15,7 +22,7 @@
     {% endif %}
     
     <h2>List of users</h2>
-    <table class="table table-bordered table-striped table-hover">
+    <table class="table table-bordered table-striped table-hover" data-provides="rowlink">
       <thead>
 	<tr>
 	  <th>Username</th>
@@ -27,7 +34,7 @@
       <tbody>
 	{% for user in users %}
 	<tr>
-	  <td>{{ user.username }}</td>
+	  <td><a href="{% url users:user username=user.username %}">{{ user.username }}</a></td>
 	  <td>{{ user.first_name }}</td>
 	  <td>{{ user.last_name }}</td>
 	  <td>{{ user.email }}</td>
