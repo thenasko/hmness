@@ -170,7 +170,7 @@ LOGGING = {
 }
 
 # Authentication settings
-AUTH_PROFILE_MODULE = 'auth.UserProfile'
+AUTH_PROFILE_MODULE = 'users.UserProfile'
 
 # Template context preprocessors
 TEMPLATE_CONTEXT_PROCESSORS = (

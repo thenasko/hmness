@@ -1,9 +1,14 @@
 from django.shortcuts import render
+from django.contrib.auth.models import User
 import django.contrib.auth as auth
+
+
+from users.models import UserProfile
 
 def home(request):
     context = {
         'active_page': 'home',
+        'users': User.objects.all(),
         }
     return render(request, "home.html", context)
 

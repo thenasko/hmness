@@ -13,12 +13,16 @@ TODO
 * Add a sign up button in the navbar
 * The authorization page should focus correctly
 * The authorization page should pertain some data
+* Make a user profile page
 
 Lower priority tasks
 ====================
 
 * Login form(s) should not post unless text is present in both fields
 * Should the navbar login form should use Django forms?
+* When the browser window is narrow, there is some white space above the navbar
+* When the browser window is narrow, the auth page behaves strangely
+* Insert check for active user when logging in
 
 Issues
 ======
