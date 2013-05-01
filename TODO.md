@@ -1,27 +1,29 @@
-hmness TODO
-===========
+TODO
+====
 
 * Write a basic database structure, add a few examples via the admin interface
 * Extend the django user profile (see this [article](http://gistflow.com/posts/725-how-to-extend-the-behaviour-of-the-user-class-in-django-1-5))
 * Create a fogot password form/mechanism
 * Login view should redirect to the place it came from
-* Allow simple message passing (e.g., wrong password, etc.)
 * Allow users to log in via Google, Facebook
 * Add [FontAwesome](http://fortawesome.github.io/Font-Awesome/) integration in order to access a wider set of icons in various sizes
 * Create a simple 404/other code error page
 * Implement "remember me" in login forms
 * Implement the sign up form
-
-Issues
-======
-
-* Migrating users to south gave some errors; investigate this
+* Add a sign up button in the navbar
+* The authorization page should focus correctly
+* The authorization page should pertain some data
 
 Lower priority tasks
 ====================
 
 * Login form(s) should not post unless text is present in both fields
 * Should the navbar login form should use Django forms?
+
+Issues
+======
+
+* Migrating users to south gave some errors; investigate this
 
 Longterm tasks
 ==============
