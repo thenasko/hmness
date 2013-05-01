@@ -13,6 +13,7 @@ TODO
 * Add a sign up button in the navbar
 * The authorization page should focus correctly
 * The authorization page should pertain some data
+* Check for user existence in users.view.user
 * Make a user profile page
 
 Lower priority tasks
@@ -36,6 +37,7 @@ Longterm tasks
 * Theme bootstrap (see [Cerulean](http://bootswatch.com/cerulean/) and [Spruce](http://bootswatch.com/spruce/))
 * Convert user profile to Django 1.5 once packages are released for Debian/Ububuntu
 * Template ```{% url %}``` syntax changed from Django 1.4 to 1.5; we need to add quotations around view names when upgrading
+* Implement user profile privacy settings (public, private, etc.)
 
 Deployment tasks
 ================

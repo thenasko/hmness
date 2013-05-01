@@ -18,7 +18,7 @@ def login(request):
     if user is None:
         messages.error(request,
                        'The username or password you provided does not match our records.')
-        return redirect('auth');
+        return redirect('users:auth');
     else:
         django_auth.login(request, user)
         # TODO: Redirect to the page this came from
@@ -37,3 +37,10 @@ def auth(request):
         'loginform': LoginForm,
         }
     return render(request, "auth.html", context)
+
+def user(request, username):
+    context = {
+        'active_page': '',
+        'username': username,
+        }
+    return render(request, "user.html", context)
