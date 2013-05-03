@@ -4,6 +4,11 @@ from django.contrib.auth.models import User
 import django.contrib.auth as django_auth
 
 from users.forms import LoginForm
+from users.forms import SignupForm
+
+from django.template import RequestContext
+from django.shortcuts import render_to_response
+
 
 def login(request):
     if (request.POST and
@@ -29,6 +34,27 @@ def logout(request):
     django_auth.logout(request)
     return redirect('home')
 
+def signup(request):
+    return redirect('users:register')
+
+def register(request):
+    if request.method == 'POST': # If the form has been submitted...
+        form = SignupForm(request.POST) # A form bound to the POST data
+        if form.is_valid():
+            username=form.cleaned_data['username']
+            email=form.cleaned_data['email']
+            password=form.cleaned_data['password']
+            user = User.objects.create_user(username, email,password)      
+            user = django_auth.authenticate(username=username,
+                                        password=password)
+            django_auth.login(request, user)
+            return redirect('home')
+            # TODO: Redirect to the page this came from
+    else:
+        form = SignupForm(request.POST)
+    return render(request,'auth.html',{'signupform': form})
+     
+
 def auth(request):
     if request.user.is_authenticated():
         return redirect('home')
@@ -36,6 +62,7 @@ def auth(request):
     context = {
         'active_page': '',
         'loginform': LoginForm,
+        'signupform': SignupForm,
         }
     return render(request, "auth.html", context)
 
