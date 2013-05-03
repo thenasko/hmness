@@ -13,7 +13,6 @@ TODO
 * Add a sign up button in the navbar
 * The authorization page should focus correctly
 * The authorization page should pertain some data
-* Check for user existence in users.view.user
 * Make a user profile page
 
 Lower priority tasks
