@@ -1,7 +1,7 @@
 from django.shortcuts import render
 from django.contrib.auth.models import User
 import django.contrib.auth as auth
-
+from pins.models import PIN
 
 from users.models import UserProfile
 
@@ -9,6 +9,7 @@ def home(request):
     context = {
         'active_page': 'home',
         'users': User.objects.all(),
+        'pins': PIN.objects.all(),
         }
     return render(request, "home.html", context)
 

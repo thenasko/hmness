@@ -10,11 +10,9 @@ urlpatterns = patterns('',
     url(r'^contact$', 'hmness.views.contact', name='contact'),
     url(r'^about$', 'hmness.views.about', name='about'),
 
-    # url(r'^login$', 'users.views.login', name='login'),
-    # url(r'^logout$', 'users.views.logout', name='logout'),
-    # url(r'^auth$', 'users.views.auth', name='auth'),
-
     url(r'', include('users.urls', namespace='users')),
+
+    url(r'', include('pins.urls', namespace='pins')),
 
     # Uncomment the admin/doc line below to enable admin documentation:
     # url(r'^admin/doc/', include('django.contrib.admindocs.urls')),

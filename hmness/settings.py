@@ -1,6 +1,7 @@
 import os
 import django
 import users
+import pins
 
 # Django settings for hmness project.
 
@@ -120,6 +121,7 @@ TEMPLATE_DIRS = (
     # Don't forget to use absolute paths, not relative paths.
     os.path.join(SITE_ROOT, 'templates'),
     os.path.join(users.__path__[0], 'templates'),
+    os.path.join(pins.__path__[0], 'templates'),
 )
 
 INSTALLED_APPS = (
@@ -136,8 +138,9 @@ INSTALLED_APPS = (
     'south',
     # A bootstrap application for Django
     'bootstrap_toolkit',
-    # hmness users application
+    # hmness applications
     'users',
+    'pins',
 )
 
 # A sample logging configuration. The only tangible logging

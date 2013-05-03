@@ -3,17 +3,21 @@ TODO
 
 * Write a basic database structure, add a few examples via the admin interface
 * Extend the django user profile (see this [article](http://gistflow.com/posts/725-how-to-extend-the-behaviour-of-the-user-class-in-django-1-5))
-* Create a fogot password form/mechanism
+* Create a forgot password form/mechanism
 * Login view should redirect to the place it came from
 * Allow users to log in via Google, Facebook
 * Add [FontAwesome](http://fortawesome.github.io/Font-Awesome/) integration in order to access a wider set of icons in various sizes
 * Create a simple 404/other code error page
 * Implement "remember me" in login forms
-* Implement the sign up form
-* Add a sign up button in the navbar
 * The authorization page should focus correctly
 * The authorization page should pertain some data
-* Make a user profile page
+* Is there a way to merge /auth and /register?
+* Add PIN profile page
+* Implement follow functionality
+* Add location data to user/pin
+* Add PIN admin interface
+* Add PIN list to home
+* PIN to string/unicode function
 
 Lower priority tasks
 ====================
@@ -23,8 +27,8 @@ Lower priority tasks
 * When the browser window is narrow, there is some white space above the navbar
 * When the browser window is narrow, the auth page behaves strangely
 * Insert check for active user when logging in
-* Test switching to a 10 column interface
-* Add outline/frame to user image
+* What characters are allowed in a username/does this conform with the url standard
+* Enforce email uniqueness for users
 
 Issues
 ======
