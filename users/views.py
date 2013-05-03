@@ -51,8 +51,8 @@ def register(request):
             return redirect('home')
             # TODO: Redirect to the page this came from
     else:
-        form = SignupForm(request.POST)
-    return render(request,'auth.html',{'signupform': form})
+        form = SignupForm()
+    return render(request,'auth.html',{'loginform':LoginForm,'signupform': form})
      
 
 def auth(request):
