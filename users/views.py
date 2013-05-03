@@ -1,6 +1,7 @@
-from django.shortcuts import render, redirect
-import django.contrib.auth as django_auth
+from django.shortcuts import render, redirect, get_object_or_404
 from django.contrib import messages
+from django.contrib.auth.models import User
+import django.contrib.auth as django_auth
 
 from users.forms import LoginForm
 
@@ -39,8 +40,9 @@ def auth(request):
     return render(request, "auth.html", context)
 
 def user(request, username):
+    user = get_object_or_404(User, username=username)
     context = {
         'active_page': '',
-        'username': username,
+        'user': user,
         }
     return render(request, "user.html", context)

@@ -24,6 +24,8 @@ Lower priority tasks
 * When the browser window is narrow, there is some white space above the navbar
 * When the browser window is narrow, the auth page behaves strangely
 * Insert check for active user when logging in
+* Test switching to a 10 column interface
+* Add outline/frame to user image
 
 Issues
 ======
@@ -38,6 +40,7 @@ Longterm tasks
 * Convert user profile to Django 1.5 once packages are released for Debian/Ububuntu
 * Template ```{% url %}``` syntax changed from Django 1.4 to 1.5; we need to add quotations around view names when upgrading
 * Implement user profile privacy settings (public, private, etc.)
+* Decide on responsive vs fixed interface
 
 Deployment tasks
 ================
