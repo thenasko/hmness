@@ -13,22 +13,21 @@
           <li{% ifequal active_page "about" %} class="active"{% endifequal %}><a href="{% url about %}">About</a></li>
           <li{% ifequal active_page "contact" %} class="active"{% endifequal %}><a href="{% url contact %}">Contact</a></li>
         </ul>
-				{% if user.is_authenticated %}
-				<ul class="nav pull-right">
-					<li><a href="{% url users:logout %}">Log out</a></li>
-				</ul>
-				{% else %}
-				<div class="pull-right">
-					<form class="navbar-form" method="POST" action="{% url users:login %}">
-						{% csrf_token %}
-						<input name="username" class="span2" type="text" placeholder="Username">
-						<input name="password" class="span2" type="password" placeholder="Password">
-						<button type="submit" class="btn btn-primary">Sign in</button>
-						<span class="divider">/</span>
-						<a href="{% url users:signup %}" class="btn btn-primary">Sign Up</a>
-					</form>
-				</div>
-				{% endif %}
+        {% if request.user.is_authenticated %}
+        <ul class="nav pull-right">
+          <li><a href="{% url users:logout %}">Log out</a></li>
+        </ul>
+        {% else %}
+        <div class="pull-right">
+          <form class="navbar-form" method="POST" action="{% url users:login %}">
+            {% csrf_token %}
+            <input name="username" class="span2" type="text" placeholder="Username">
+            <input name="password" class="span2" type="password" placeholder="Password">
+            <button type="submit" class="btn btn-primary">Sign in</button>
+            <a href="{% url users:signup %}" class="btn btn-primary">Sign Up</a>
+          </form>
+        </div>
+        {% endif %}
       </div><!--/.nav-collapse -->
     </div>
   </div>

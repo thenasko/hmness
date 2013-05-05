@@ -15,9 +15,13 @@ TODO
 * Add PIN profile page
 * Implement follow functionality
 * Add location data to user/pin
-* Add PIN admin interface
-* Add PIN list to home
 * PIN to string/unicode function
+* Implement user/pin followe/following function
+* Populate the users/pins connections tab
+* User edit profile tab accessibility
+* Think about pin edit rights
+* Limit connection models
+* Add connection administration
 
 Lower priority tasks
 ====================
