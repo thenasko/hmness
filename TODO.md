@@ -21,7 +21,7 @@ TODO
 * User edit profile tab accessibility
 * Think about pin edit rights
 * Limit connection models
-* Add connection administration
+* Add proper titles/text in Connections admin page
 
 Lower priority tasks
 ====================
@@ -33,6 +33,7 @@ Lower priority tasks
 * Insert check for active user when logging in
 * What characters are allowed in a username/does this conform with the url standard
 * Enforce email uniqueness for users
+* Convert url tag to Django 1.5 standard (see [this](http://nomulous.com/blog/easily-adopt-djangos-new-url-template-syntax/))
 
 Issues
 ======

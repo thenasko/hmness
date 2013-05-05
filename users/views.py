@@ -71,5 +71,7 @@ def user(request, username):
     context = {
         'active_page': '',
         'user': user,
+        'connections_in': None,
+        'connections_out': None,
         }
     return render(request, "user.html", context)

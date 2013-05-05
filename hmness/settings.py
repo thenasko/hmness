@@ -4,6 +4,7 @@ import os
 import django
 import users
 import pins
+import connections
 
 # Django settings for hmness project.
 
@@ -124,6 +125,7 @@ TEMPLATE_DIRS = (
     os.path.join(SITE_ROOT, 'templates'),
     os.path.join(users.__path__[0], 'templates'),
     os.path.join(pins.__path__[0], 'templates'),
+    os.path.join(connections.__path__[0], 'templates'),
 )
 
 INSTALLED_APPS = (
