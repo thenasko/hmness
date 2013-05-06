@@ -4,14 +4,13 @@ from django.contrib.auth.admin import UserAdmin
 from users.models import UserProfile
 from connections.admin import ConnectionInInline, ConnectionOutInline
  
-admin.site.unregister(User)
+# admin.site.unregister(User)
 
-class UserProfileInline(admin.StackedInline):
-    model = UserProfile
+# class UserProfileInline(admin.StackedInline):
+#     model = UserProfile
  
-class UserProfileAdmin(UserAdmin):
-    inlines = [UserProfileInline,
-               ConnectionInInline,
+class UserProfileAdmin(admin.ModelAdmin):
+    inlines = [ConnectionInInline,
                ConnectionOutInline]
  
-admin.site.register(User, UserProfileAdmin)
+admin.site.register(UserProfile, UserProfileAdmin)

@@ -8,15 +8,23 @@ from connections.models import Connection
 class UserProfile(models.Model):
     user = models.OneToOneField(User, unique=True)
 
-    connections_in = generic.GenericRelation(Connection,
-                                             content_type_field='in_content_type',
-                                             object_id_field='in_object_id',
-                                             related_name='connections_in')
+    # connections_in = generic.GenericRelation(Connection,
+    #                                          content_type_field='in_content_type',
+    #                                          object_id_field='in_object_id',
+    #                                          related_name='connections_in',
+    #                                          verbose_name='incomming connections')
 
-    connections_out = generic.GenericRelation(Connection,
-                                              content_type_field='out_content_type',
-                                              object_id_field='out_object_id',
-                                              related_name='connections_out')
+    # connections_out = generic.GenericRelation(Connection,
+    #                                           content_type_field='out_content_type',
+    #                                           object_id_field='out_object_id',
+    #                                           related_name='connections_out',
+    #                                           verbose_name='outgoing connections')
+
+    def get_connections_in(self):
+        pass
+
+    def get_connections_out(self):
+        pass
 
     # Additional user profile fields:
     # * Location(s)

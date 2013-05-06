@@ -6,6 +6,8 @@ import users
 import pins
 import connections
 
+# from django.db import models
+
 # Django settings for hmness project.
 
 DJANGO_ROOT = os.path.dirname(os.path.realpath(django.__file__))
@@ -186,3 +188,9 @@ TEMPLATE_CONTEXT_PROCESSORS = global_settings.TEMPLATE_CONTEXT_PROCESSORS + (
     'django.contrib.messages.context_processors.messages',
     'django.core.context_processors.request',
 )
+
+# Connections settings
+from django.db import models
+
+CONNECTIONS_MODELS_LIMIT = models.Q(app_label='users', model='userprofile') | models.Q(app_label='pins', model='pin')
+

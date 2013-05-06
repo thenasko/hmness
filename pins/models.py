@@ -10,3 +10,6 @@ class PIN(models.Model):
     # Location
     # Description/wiki
     # Followers
+
+    def __unicode__(self):
+        return "%s %s" % (self.first_name, self.last_name)

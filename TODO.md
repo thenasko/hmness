@@ -12,16 +12,11 @@ TODO
 * The authorization page should focus correctly
 * The authorization page should pertain some data
 * Is there a way to merge /auth and /register?
-* Add PIN profile page
-* Implement follow functionality
 * Add location data to user/pin
-* PIN to string/unicode function
-* Implement user/pin followe/following function
+* Implement user/pin follow/following function
 * Populate the users/pins connections tab
-* User edit profile tab accessibility
 * Think about pin edit rights
-* Limit connection models
-* Add proper titles/text in Connections admin page
+* Add a creation date to connections (is there an abstract model which does that?)
 
 Lower priority tasks
 ====================
@@ -34,6 +29,7 @@ Lower priority tasks
 * What characters are allowed in a username/does this conform with the url standard
 * Enforce email uniqueness for users
 * Convert url tag to Django 1.5 standard (see [this](http://nomulous.com/blog/easily-adopt-djangos-new-url-template-syntax/))
+* Figure out a way to deal with UserProfiles in admin interface (Connection's GenericRelations do not work well with inlines)
 
 Issues
 ======
