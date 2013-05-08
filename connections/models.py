@@ -3,6 +3,8 @@ from django.contrib.contenttypes.models import ContentType
 from django.contrib.contenttypes import generic
 from django.conf import settings
 
+from hmness.shortcuts import diff, intersection
+
 class Connection(models.Model):
     in_content_type = models.ForeignKey(ContentType,
                                         limit_choices_to=settings.CONNECTIONS_MODELS_LIMIT,
@@ -18,3 +20,51 @@ class Connection(models.Model):
 
     def __unicode__(self):
         return "Connection from %s to %s" % (self.out_content_object, self.in_content_object)
+
+class ConnectionEnd(models.Model):
+    connections_in = generic.GenericRelation(Connection,
+                                             content_type_field='in_content_type',
+                                             object_id_field='in_object_id',
+                                             related_name='connections_in',
+                                             verbose_name='incomming connections')
+
+    connections_out = generic.GenericRelation(Connection,
+                                              content_type_field='out_content_type',
+                                              object_id_field='out_object_id',
+                                              related_name='connections_out',
+                                              verbose_name='outgoing connections')
+
+    @property
+    def connections_all(self):
+        return self.connections_in.all() | self.connections_out.all()
+
+    @property
+    def connections_in_objects(self):
+        return [c.out_content_object for c in self.connections_in.iterator()]
+
+    @property
+    def connections_out_objects(self):
+        return [c.in_content_object for c in self.connections_out.iterator()]
+
+    @property
+    def connections_in_only(self):
+        return diff(self.connections_in_objects, self.connections_out_objects)
+
+    @property
+    def connections_out_only(self):
+        return diff(self.connections_out_objects, self.connections_in_objects)
+
+    @property
+    def connections_in_out(self):
+        return intersection(self.connection_in_objects, self.connections_out_objects)
+
+    @property
+    def connections_pack(self):
+        c_in = self.connections_in_objects
+        c_out = self.connections_out_objects
+        return (diff(c_in, c_out),
+                diff(c_out, c_in),
+                intersection(c_in, c_out))
+
+    class Meta:
+        abstract = True

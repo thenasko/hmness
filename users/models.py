@@ -2,29 +2,19 @@ from django.db import models
 from django.contrib.auth.models import User
 from django.db.models.signals import post_save
 from django.contrib.contenttypes import generic
+from django.core.urlresolvers import reverse
 
-from connections.models import Connection
+from connections.models import Connection, ConnectionEnd
 
-class UserProfile(models.Model):
+class UserProfile(ConnectionEnd):
     user = models.OneToOneField(User, unique=True)
 
-    # connections_in = generic.GenericRelation(Connection,
-    #                                          content_type_field='in_content_type',
-    #                                          object_id_field='in_object_id',
-    #                                          related_name='connections_in',
-    #                                          verbose_name='incomming connections')
+    @property
+    def name(self):
+        return "%s %s" % (self.user.first_name, self.user.last_name)
 
-    # connections_out = generic.GenericRelation(Connection,
-    #                                           content_type_field='out_content_type',
-    #                                           object_id_field='out_object_id',
-    #                                           related_name='connections_out',
-    #                                           verbose_name='outgoing connections')
-
-    def get_connections_in(self):
-        pass
-
-    def get_connections_out(self):
-        pass
+    def get_absolute_url(self):
+        return reverse('users:user', kwargs={'username': self.user.username})
 
     # Additional user profile fields:
     # * Location(s)

@@ -1,3 +1,20 @@
-Connections in:
+{% for c in connections_in_only %}
+<p>
+  <a href="{{ c.get_absolute_url }}">{{ c.name }}</a> is following you.
+  <button class="btn btn-small btn-success pull-right">Follow</button>
+</p>
+{% endfor %}
 
-Connections out:
+{% for c in connections_out_only %}
+<p>
+  You are following <a href="{{ c.get_absolute_url }}">{{ c.name }}</a>.
+  <button class="btn btn-small btn-warning pull-right">Unfollow</button>
+</p>
+{% endfor %}
+
+{% for c in connections_in_out %}
+<p>
+  <a href="{{ c.get_absolute_url }}">{{ c.name }}</a> and you are follow buddies.
+  <button class="btn btn-small btn-warning pull-right">Unfollow</button>
+</p>
+{% endfor %}

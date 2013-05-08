@@ -68,10 +68,14 @@ def auth(request):
 
 def user(request, username):
     user = get_object_or_404(User, username=username)
+    c_in_only, c_out_only, c_in_out = user.get_profile().connections_pack
     context = {
         'active_page': '',
         'user': user,
-        'connections_in': None,
-        'connections_out': None,
+        'connections_in_only': c_in_only,
+        'connections_out_only': c_out_only,
+        'connections_in_out': c_in_out,
+        'connections_in_count': len(c_in_only) + len(c_in_out),
+        'connections_out_count': len(c_out_only) + len(c_in_out),
         }
     return render(request, "user.html", context)

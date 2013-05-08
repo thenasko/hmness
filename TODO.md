@@ -13,10 +13,13 @@ TODO
 * The authorization page should pertain some data
 * Is there a way to merge /auth and /register?
 * Add location data to user/pin
-* Implement user/pin follow/following function
 * Populate the users/pins connections tab
 * Think about pin edit rights
 * Add a creation date to connections (is there an abstract model which does that?)
+* Implement user/pin follow/following buttons
+* Add the follow stats to user profile page
+* Add follow button
+* Connections tab should be different depending on user
 
 Lower priority tasks
 ====================
@@ -30,6 +33,7 @@ Lower priority tasks
 * Enforce email uniqueness for users
 * Convert url tag to Django 1.5 standard (see [this](http://nomulous.com/blog/easily-adopt-djangos-new-url-template-syntax/))
 * Figure out a way to deal with UserProfiles in admin interface (Connection's GenericRelations do not work well with inlines)
+* Add a connection block mechanism
 
 Issues
 ======
