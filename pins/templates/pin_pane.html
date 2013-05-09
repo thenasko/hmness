@@ -1,0 +1,23 @@
+{% load staticfiles %}
+
+<div class="span4">
+  <div class="thumbnail pin-leftpane">
+    <img alt="300x300" class="pin-image" src="{% static 'pin-image.png' %}"></img>
+    <div class="caption">
+      {% if request.user.is_authenticated  %}
+      {% if request.user.get_profile in connections_in_only or request.user.get_profile in connections_in_out %}
+      <a href="{{ pin.get_unfollow_url }}" class="btn btn-warning pull-right">Unfollow</a>
+      {% else %}
+      <a href="{{ pin.get_follow_url }}" class="btn btn-success pull-right">Follow</a>
+      {% endif %}
+      {% endif %}
+
+      <h3 style="font-weight: bold;">{{ pin.first_name }} {{ pin.last_name }}</h3>
+      
+      <p>website/other profile links</p>
+      <p>Joined date</p>
+      <p>Location/link to map</p>
+      <p>Stats about following/followers</p>
+    </div>
+  </div>
+</div>

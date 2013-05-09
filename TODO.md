@@ -13,11 +13,8 @@ TODO
 * The authorization page should pertain some data
 * Is there a way to merge /auth and /register?
 * Add location data to user/pin
-* Populate the users/pins connections tab
 * Think about pin edit rights
 * Add a creation date to connections (is there an abstract model which does that?)
-* Implement pin follow/unfollow button
-* Add connections tab in pins tab
 * Add url access to pin tabs
 * On tab move change url without reloading
 * Employ render_to decorator in views

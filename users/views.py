@@ -3,6 +3,7 @@ from django.contrib import messages
 from django.contrib.auth.models import User
 import django.contrib.auth as django_auth
 
+from django.http import Http404
 from django.template import RequestContext
 from django.shortcuts import render_to_response
 
@@ -85,17 +86,15 @@ def user(request, username, active_tab='activity'):
     return render(request, "user.html", context)
 
 def follow(request, username):
-    user = get_object_or_404(User, username=username)
-
     if request.user.is_authenticated():
-        messages.success(request, "You just followed someone!")
-
+        user = get_object_or_404(User, username=username)
         return connections_follow(request, request.user.get_profile(), user.get_profile())
+    else:
+        raise Http404
 
 def unfollow(request, username):
-    user = get_object_or_404(User, username=username)
-
     if request.user.is_authenticated():
-        messages.warning(request, "You just unfollowed someone!")
-
+        user = get_object_or_404(User, username=username)
         return connections_unfollow(request, request.user.get_profile(), user.get_profile())
+    else:
+        raise Http404

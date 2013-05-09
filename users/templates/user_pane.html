@@ -1,0 +1,23 @@
+{% load staticfiles %}
+
+<div class="span4">
+  <div class="thumbnail user-leftpane">
+    <img alt="300x300" class="user-image" src="{% static 'user-image.png' %}"></img>
+    <div class="caption">
+      {% if request.user.is_authenticated and request.user.id != user.id %}
+      {% if request.user.get_profile in connections_in_only or request.user.get_profile in connections_in_out %}
+      <a href="{{ user.get_profile.get_unfollow_url }}" class="btn btn-warning pull-right">Unfollow</a>
+      {% else %}
+      <a href="{{ user.get_profile.get_follow_url }}" class="btn btn-success pull-right">Follow</a>
+      {% endif %}
+      {% endif %}
+
+      <h3 style="font-weight: bold;">{{ user.first_name }} {{user.last_name }}</h3>
+      <h4 style="font-weight: bold;">{{ user.username }}</h4>
+
+      <p>website/other profile links</p>
+      <p>Joined date</p>
+      <p>Location/link to map</p>
+    </div>
+  </div>
+</div>

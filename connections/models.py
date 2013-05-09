@@ -26,13 +26,13 @@ class ConnectionEnd(models.Model):
     connections_in = generic.GenericRelation(Connection,
                                              content_type_field='in_content_type',
                                              object_id_field='in_object_id',
-                                             related_name='connections_in',
+                                             related_name='%(app_label)s_%(class)s_connections_in',
                                              verbose_name='incomming connections')
 
     connections_out = generic.GenericRelation(Connection,
                                               content_type_field='out_content_type',
                                               object_id_field='out_object_id',
-                                              related_name='connections_out',
+                                              related_name='%(app_label)s_%(class)s_connections_out',
                                               verbose_name='outgoing connections')
 
     @property
