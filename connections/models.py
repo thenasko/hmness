@@ -88,5 +88,15 @@ class ConnectionEnd(models.Model):
         if not(c is None):
             c.delete()
 
+    def get_follow_url(self):
+        raise NotImplementedError("ConnectionEnd.get_follow_url is an abstract method.")
+
+    def get_unfollow_url(self):
+        raise NotImplementedError("ConnectionEnd.get_unfollow_url is an abstract method.")
+
+    @property
+    def name(self):
+        raise NotImplementedError("ConnectionEnd.name is an abstract property.")
+
     class Meta:
         abstract = True

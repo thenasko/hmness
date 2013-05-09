@@ -24,43 +24,43 @@
     <h2>List of users</h2>
     <table class="table table-bordered table-striped table-hover" data-provides="rowlink">
       <thead>
-				<tr>
-					<th>Username</th>
-					<th>First name</th>
-					<th>Last name</th>
-					<th>Email</th>
-				</tr>
+        <tr>
+          <th>Username</th>
+          <th>First name</th>
+          <th>Last name</th>
+          <th>Email</th>
+        </tr>
       </thead>
       <tbody>
-				{% for user in users %}
-				<tr>
-					<td><a href="{% url users:user username=user.username %}">{{ user.username }}</a></td>
-					<td>{{ user.first_name }}</td>
-					<td>{{ user.last_name }}</td>
-					<td>{{ user.email }}</td>
-				</tr>
-				{% endfor %}
+        {% for user in users %}
+        <tr>
+          <td><a href="{% url users:user username=user.username %}">{{ user.username }}</a></td>
+          <td>{{ user.first_name }}</td>
+          <td>{{ user.last_name }}</td>
+          <td>{{ user.email }}</td>
+        </tr>
+        {% endfor %}
       </tbody>
     </table>
 
     <h2>List of people in need</h2>
     <table class="table table-bordered table-striped table-hover" data-provides="rowlink">
       <thead>
-				<tr>
-					<th>First name</th>
-					<th>Last name</th>
-				</tr>
+        <tr>
+          <th>First name</th>
+          <th>Last name</th>
+        </tr>
       </thead>
       <tbody>
-				{% for pin in pins %}
-				<tr>
-					<td><a href="{% url pins:pin pin_id=pin.id %}">{{ pin.first_name }}</a></td>
-					<td>{{ pin.last_name }}</td>
-				</tr>
-				{% endfor %}
+        {% for pin in pins %}
+        <tr>
+          <td><a href="{% url pins:pin pin_id=pin.id %}">{{ pin.first_name }}</a></td>
+          <td>{{ pin.last_name }}</td>
+        </tr>
+        {% endfor %}
       </tbody>
     </table>
 
-	</div>
+  </div>
 </div>
 {% endblock %}

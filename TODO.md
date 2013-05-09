@@ -25,6 +25,7 @@ TODO
 * Add @autostrip to registration form
 * Employ render_to decorator in views
 * Follow/unfollow actions should employ django.messages
+* In user/pin profile, clicking on follow stats should open the connections tab
 
 Lower priority tasks
 ====================
@@ -41,6 +42,7 @@ Lower priority tasks
 * Add a connection block mechanism
 * Follow/unfollow button position in user pane
 * Get login/logout/signin/signout wording consistent
+* Use abstract methods in ConnectionEnd
 
 Issues
 ======

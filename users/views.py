@@ -77,29 +77,10 @@ def user(request, username, active_tab='activity'):
     if (active_tab == 'edit') and (request.user.id != user.id):
         return redirect('users:user', username = username)
 
-    c_in_only, c_out_only, c_in_out = user.get_profile().connections_pack
-
-    if request.user.id == user.id:
-        c_self_name = 'you'
-        c_be_verb = 'are'
-        c_can_edit = True
-    else:
-        c_self_name = user.get_profile().name
-        c_be_verb = 'is'
-        c_can_edit = False
-
     context = {
         'active_page': '',
         'user': user,
         'active_tab': active_tab,
-        'connections_in_only': c_in_only,
-        'connections_out_only': c_out_only,
-        'connections_in_out': c_in_out,
-        'connections_in_count': len(c_in_only) + len(c_in_out),
-        'connections_out_count': len(c_out_only) + len(c_in_out),
-        'connections_self_name': c_self_name,
-        'connections_be_verb': c_be_verb,
-        'connections_can_edit': c_can_edit,
         }
     return render(request, "user.html", context)
 

@@ -1,6 +1,7 @@
 {% extends "base.html" %}
 
 {% load staticfiles %}
+{% load connections %}
 
 {% block head %}
 <style type="text/css">
@@ -44,6 +45,13 @@
       </div>
     </div>
   </div>
+
+  {% if request.user.id == user.id %}
+  {% connections_init user.get_profile self_name='you' be_verb='are' can_edit='True' %}
+  {% else %}
+  {% connections_init user.get_profile  %}
+  {% endif %}
+
   <div class="span8">
     <div class="navbar">
       <div class="navbar-inner">
@@ -67,7 +75,7 @@
         Activity
       </div>
       <div class="tab-pane{% if active_tab == 'connections' %} active{% endif %}" id="connections">
-	{% include "connections_list.html" %}
+        {% connections_list %}
       </div>
       {% if request.user.is_authenticated and request.user.id == user.id %}
       <div class="tab-pane{% if active_tab == 'edit' %} active{% endif %}" id="edit_profile">
