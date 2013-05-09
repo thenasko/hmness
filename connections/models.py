@@ -3,6 +3,7 @@ from django.contrib.contenttypes.models import ContentType
 from django.contrib.contenttypes import generic
 from django.conf import settings
 
+from annoying.functions import get_object_or_None
 from hmness.shortcuts import diff, intersection
 
 class Connection(models.Model):
@@ -65,6 +66,27 @@ class ConnectionEnd(models.Model):
         return (diff(c_in, c_out),
                 diff(c_out, c_in),
                 intersection(c_in, c_out))
+
+    def get_following_connection(self, object):
+        return get_object_or_None(
+            self.connections_out,
+            in_content_type = ContentType.objects.get_for_model(object),
+            in_object_id = object.id)
+    
+    def is_following(self, object):
+        return not(self.get_following_connection(object) is None)
+
+    def follow(self, object):
+        if not self.is_following(object):
+            c = Connection.objects.create(
+                out_content_object=self,
+                in_content_object=object)
+            c.save()
+
+    def unfollow(self, object):
+        c = self.get_following_connection(object)
+        if not(c is None):
+            c.delete()
 
     class Meta:
         abstract = True

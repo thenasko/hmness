@@ -16,6 +16,12 @@ class UserProfile(ConnectionEnd):
     def get_absolute_url(self):
         return reverse('users:user', kwargs={'username': self.user.username})
 
+    def get_follow_url(self):
+        return reverse('users:follow', kwargs={'username': self.user.username})
+
+    def get_unfollow_url(self):
+        return reverse('users:unfollow', kwargs={'username': self.user.username})
+
     # Additional user profile fields:
     # * Location(s)
     # * Website

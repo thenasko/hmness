@@ -1,20 +1,26 @@
 {% for c in connections_in_only %}
 <p>
-  <a href="{{ c.get_absolute_url }}">{{ c.name }}</a> is following you.
-  <button class="btn btn-small btn-success pull-right">Follow</button>
+  <a href="{{ c.get_absolute_url }}">{{ c.name }}</a> is following {{ connections_self_name }}.
+  {% if connections_can_edit %}
+  <a href="{{ c.get_follow_url }}" class="btn btn-small btn-success pull-right">Follow</a>
+  {% endif %}
 </p>
 {% endfor %}
 
 {% for c in connections_out_only %}
 <p>
-  You are following <a href="{{ c.get_absolute_url }}">{{ c.name }}</a>.
-  <button class="btn btn-small btn-warning pull-right">Unfollow</button>
+  {{ connections_self_name|title }} {{ connections_be_verb }} following <a href="{{ c.get_absolute_url }}">{{ c.name }}</a>.
+  {% if connections_can_edit %}
+  <a href="{{ c.get_unfollow_url }}" class="btn btn-small btn-warning pull-right">Unfollow</a>
+  {% endif %}
 </p>
 {% endfor %}
 
 {% for c in connections_in_out %}
 <p>
-  <a href="{{ c.get_absolute_url }}">{{ c.name }}</a> and you are follow buddies.
-  <button class="btn btn-small btn-warning pull-right">Unfollow</button>
+  <a href="{{ c.get_absolute_url }}">{{ c.name }}</a> and {{ connections_self_name }} are follow buddies.
+  {% if connections_can_edit %}
+  <a href="{{ c.get_unfollow_url }}" class="btn btn-small btn-warning pull-right">Unfollow</a>
+  {% endif %}
 </p>
 {% endfor %}

@@ -144,6 +144,8 @@ INSTALLED_APPS = (
     'south',
     # A bootstrap application for Django
     'bootstrap_toolkit',
+    # Django-annoying
+    'annoying',
     # hmness applications
     'users',
     'pins',

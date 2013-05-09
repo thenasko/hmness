@@ -18,6 +18,7 @@ The current prerequisites of the project are
 * python-django
 * python-django-south
 * django-bootstrap-toolkit (to install use ```pip install django-bootstrap-toolkit```)
+* django-annoying (to install use ```pip install django-annoying```)
 
 Use the following command to check out the repository.
 

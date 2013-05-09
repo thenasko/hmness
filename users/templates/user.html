@@ -13,6 +13,11 @@
   height 300px;
   /* border-radius: 10px; */
   }
+
+  .connection-stats {
+  font-size: 18px;
+  /* font-weight: bold; */
+  }
 </style>
 {% endblock %}
 
@@ -22,13 +27,20 @@
     <div class="thumbnail user-leftpane">
       <img alt="300x300" class="user-image" src="{% static 'user-image.png' %}"></img>
       <div class="caption">
+        {% if request.user.is_authenticated and request.user.id != user.id %}
+        {% if request.user.get_profile in connections_in_only or request.user.get_profile in connections_in_out %}
+        <a href="{{ user.get_profile.get_unfollow_url }}" class="btn btn-warning pull-right">Unfollow</a>
+        {% else %}
+        <a href="{{ user.get_profile.get_follow_url }}" class="btn btn-success pull-right">Follow</a>
+        {% endif %}
+        {% endif %}
+
         <h3 style="font-weight: bold;">{{ user.first_name }} {{user.last_name }}</h3>
         <h4 style="font-weight: bold;">{{ user.username }}</h4>
-        
+
         <p>website/other profile links</p>
         <p>Joined date</p>
         <p>Location/link to map</p>
-        <p>Stats about following/followers</p>
       </div>
     </div>
   </div>
@@ -36,29 +48,29 @@
     <div class="navbar">
       <div class="navbar-inner">
         <ul class="nav">
-          <li><a>{{ connections_in_count }} followers</a></li>
-          <li><a>{{ connections_out_count }} followers</a></li>
+          <li><a><span class="connection-stats">{{ connections_in_count }}</span>&nbsp;&nbsp;followers</a></li>
+          <li><a><span class="connection-stats">{{ connections_out_count }}</span>&nbsp;&nbsp;following</a></li>
         </ul>
       </div>
     </div>
     
     <ul class="nav nav-tabs" id="userTab">
-      <li class="active"><a data-toggle="tab" href="#activity">Activity</a></li>
-      <li><a data-toggle="tab" href="#connections">Connections</a></li>
+      <li{% if active_tab == "activity" %} class="active"{% endif %}><a data-toggle="tab" href="#activity">Activity</a></li>
+      <li{% if active_tab == "connections" %} class="active"{% endif %}><a data-toggle="tab" href="#connections">Connections</a></li>
       {% if request.user.is_authenticated and request.user.id == user.id %}
-      <li><a data-toggle="tab" href="#edit_profile">Edit profile</a></li>
+      <li{% if active_tab == "edit" %} class="active"{% endif %}><a data-toggle="tab" href="#edit_profile">Edit profile</a></li>
       {% endif %}
     </ul>
     
     <div class="tab-content">
-      <div class="tab-pane active" id="activity">
+      <div class="tab-pane{% if active_tab == 'activity' %} active{% endif %}" id="activity">
         Activity
       </div>
-      <div class="tab-pane" id="connections">
+      <div class="tab-pane{% if active_tab == 'connections' %} active{% endif %}" id="connections">
 	{% include "connections_list.html" %}
       </div>
       {% if request.user.is_authenticated and request.user.id == user.id %}
-      <div class="tab-pane" id="edit_profile">
+      <div class="tab-pane{% if active_tab == 'edit' %} active{% endif %}" id="edit_profile">
         Edit profile
       </div>
       {% endif %}

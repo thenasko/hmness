@@ -16,10 +16,15 @@ TODO
 * Populate the users/pins connections tab
 * Think about pin edit rights
 * Add a creation date to connections (is there an abstract model which does that?)
-* Implement user/pin follow/following buttons
-* Add the follow stats to user profile page
-* Add follow button
-* Connections tab should be different depending on user
+* Implement pin follow/unfollow button
+* Add connections tab in pins tab
+* Add url access to pin tabs
+* Convert connections_list to template tag (or clear the ```users.view.user``` parameters)
+* On tab move change url without reloading
+* Split user profile page in several html files
+* Add @autostrip to registration form
+* Employ render_to decorator in views
+* Follow/unfollow actions should employ django.messages
 
 Lower priority tasks
 ====================
@@ -34,6 +39,8 @@ Lower priority tasks
 * Convert url tag to Django 1.5 standard (see [this](http://nomulous.com/blog/easily-adopt-djangos-new-url-template-syntax/))
 * Figure out a way to deal with UserProfiles in admin interface (Connection's GenericRelations do not work well with inlines)
 * Add a connection block mechanism
+* Follow/unfollow button position in user pane
+* Get login/logout/signin/signout wording consistent
 
 Issues
 ======

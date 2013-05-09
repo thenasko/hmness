@@ -7,5 +7,5 @@ urlpatterns = patterns('',
     # url(r'^register$', 'users.views.register', name='register'),
     # url(r'^auth$', 'users.views.auth', name='auth'),
 
-    url(r'^p/(?P<pin_id>\w+)', 'pins.views.pin', name='pin')
+    url(r'^profile/(?P<pin_id>\w+)', 'pins.views.pin', name='pin')
 )
