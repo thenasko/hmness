@@ -4,61 +4,50 @@
 
 {% block head %}
 <style type="text/css">
-	.pin-leftpane {
-	/* border-radius: 10px; */
-	}
+  .pin-leftpane {
+  /* border-radius: 10px; */
+  }
 
-	.pin-image {
-	width: 300px;
-	height 300px;
-	/* border-radius: 10px; */
-	}
+  .pin-image {
+  width: 300px;
+  height 300px;
+  /* border-radius: 10px; */
+  }
 </style>
 {% endblock %}
 
 {% block content %}
 <div class="row">
-  <div class="span4">
-		<div class="thumbnail pin-leftpane">
-			<img alt="300x300" class="pin-image" src="{% static 'pin-image.png' %}"></img>
-			<div class="caption">
-				<h3 style="font-weight: bold;">{{ pin.first_name }} {{pin.last_name }}</h3>
-				
-				<p>website/other profile links</p>
-				<p>Joined date</p>
-				<p>Location/link to map</p>
-				<p>Stats about following/followers</p>
-			</div>
-		</div>
-  </div>
+  {% include "pins_pane.html" %}
+
   <div class="span8">
-		<div class="navbar">
-			<div class="navbar-inner">
-				<ul class="nav">
-					<li><a>1</a></li>
-					<li><a>2</a></li>
-					<li><a>3</a></li>
-				</ul>
-			</div>
-		</div>
-		
-		<ul class="nav nav-tabs" id="pinTab">
-			<li class="active"><a data-toggle="tab" href="#activity">Activity</a></li>
-			<li><a data-toggle="tab" href="#connections">Connections</a></li>
-			<li><a data-toggle="tab" href="#edit_profile">Edit profile</a></li>
-		</ul>
-		
-		<div class="tab-content">
-			<div class="tab-pane active" id="activity">
-				Activity
-			</div>
-			<div class="tab-pane" id="connections">
-				Connections
-			</div>
-			<div class="tab-pane" id="edit_profile">
-				Edit profile
-			</div>
-		</div>
+    <div class="navbar">
+      <div class="navbar-inner">
+        <ul class="nav">
+          <li><a>1</a></li>
+          <li><a>2</a></li>
+          <li><a>3</a></li>
+        </ul>
+      </div>
+    </div>
+    
+    <ul class="nav nav-tabs" id="pinTab">
+      <li class="active"><a data-toggle="tab" href="#activity">Activity</a></li>
+      <li><a data-toggle="tab" href="#connections">Connections</a></li>
+      <li><a data-toggle="tab" href="#edit_profile">Edit profile</a></li>
+    </ul>
+    
+    <div class="tab-content">
+      <div class="tab-pane active" id="activity">
+        Activity
+      </div>
+      <div class="tab-pane" id="connections">
+        Connections
+      </div>
+      <div class="tab-pane" id="edit_profile">
+        Edit profile
+      </div>
+    </div>
   </div>
 </div>
 

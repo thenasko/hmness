@@ -19,12 +19,9 @@ TODO
 * Implement pin follow/unfollow button
 * Add connections tab in pins tab
 * Add url access to pin tabs
-* Convert connections_list to template tag (or clear the ```users.view.user``` parameters)
 * On tab move change url without reloading
-* Split user profile page in several html files
-* Add @autostrip to registration form
 * Employ render_to decorator in views
-* Follow/unfollow actions should employ django.messages
+* Customize follow/unfollow messages, check for correctness before adding a message
 * In user/pin profile, clicking on follow stats should open the connections tab
 
 Lower priority tasks
@@ -43,6 +40,7 @@ Lower priority tasks
 * Follow/unfollow button position in user pane
 * Get login/logout/signin/signout wording consistent
 * Use abstract methods in ConnectionEnd
+* Add @autostrip to registration form
 
 Issues
 ======

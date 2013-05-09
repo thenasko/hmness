@@ -88,10 +88,14 @@ def follow(request, username):
     user = get_object_or_404(User, username=username)
 
     if request.user.is_authenticated():
+        messages.success(request, "You just followed someone!")
+
         return connections_follow(request, request.user.get_profile(), user.get_profile())
 
 def unfollow(request, username):
     user = get_object_or_404(User, username=username)
 
     if request.user.is_authenticated():
+        messages.warning(request, "You just unfollowed someone!")
+
         return connections_unfollow(request, request.user.get_profile(), user.get_profile())
