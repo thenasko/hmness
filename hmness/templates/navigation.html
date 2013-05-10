@@ -9,9 +9,9 @@
       <a class="brand" href="{% url home %}">hmness</a>
       <div class="nav-collapse collapse">
         <ul class="nav">
-          <li{% ifequal active_page "home" %} class="active"{% endifequal %}><a href="{% url home %}"> <i class="icon-home icon-2x"></i> Home</a></li>
-          <li{% ifequal active_page "about" %} class="active"{% endifequal %}><a href="{% url about %}"><i class="icon-folder-open icon-2x"></i>About</a></li>
-          <li{% ifequal active_page "contact" %} class="active"{% endifequal %}><a href="{% url contact %}"><i class="icon-envelope-alt icon-2x"></i>Contact</a></li>
+          <li{% ifequal active_page "home" %} class="active"{% endifequal %}><a href="{% url home %}"> <i class="icon-home"></i>Home</a></li>
+          <li{% ifequal active_page "about" %} class="active"{% endifequal %}><a href="{% url about %}"><i class="icon-folder-open"></i>About</a></li>
+          <li{% ifequal active_page "contact" %} class="active"{% endifequal %}><a href="{% url contact %}"><i class="icon-envelope-alt"></i>Contact</a></li>
         </ul>
         {% if request.user.is_authenticated %}
         <ul class="nav pull-right">
