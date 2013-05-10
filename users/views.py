@@ -5,9 +5,9 @@ import django.contrib.auth as django_auth
 
 from django.http import Http404
 from django.template import RequestContext
-from django.shortcuts import render_to_response
 
 from annoying.utils import HttpResponseReload
+from annoying.decorators import render_to
 
 from users.forms import LoginForm
 from users.forms import SignupForm

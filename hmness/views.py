@@ -3,24 +3,26 @@ from django.contrib.auth.models import User
 import django.contrib.auth as auth
 from pins.models import PIN
 
+from annoying.decorators import render_to
+
 from users.models import UserProfile
 
+@render_to('home.html')
 def home(request):
-    context = {
+    return {
         'active_page': 'home',
         'users': User.objects.all(),
         'pins': PIN.objects.all(),
         }
-    return render(request, "home.html", context)
 
+@render_to('contact.html')
 def contact(request):
-    context = {
+    return {
         'active_page': 'contact',
         }
-    return render(request, "contact.html", context)
 
+@render_to('about.html')
 def about(request):
-    context = {
+    return {
         'active_page': 'about',
         }
-    return render(request, "about.html", context)
