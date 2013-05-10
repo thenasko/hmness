@@ -6,16 +6,16 @@ TODO
 * Create a simple 404/other code error page
 * Implement "remember me" in login forms
 * The authorization page should focus correctly
-* The authorization page should pertain some data
 * Is there a way to merge /auth and /register?
 * Add location data to user/pin
 * Think about pin edit rights, follow/unfollow on behalf of pin
 * Add a creation date to connections (is there an abstract model which does that?)
 * Add url access to pin tabs
 * On tab move change url without reloading
-* Customize follow/unfollow messages, check for correctness before adding a message
 * In user/pin profile, clicking on follow stats should open the connections tab
 * Replace the "Log out" button in the navbar with a profile menu
+* Remove url tabs persistence code for user.html/pin.html
+* Pin/user tabs should use AJAX
 
 Lower priority tasks
 ====================
@@ -34,6 +34,9 @@ Lower priority tasks
 * Get login/logout/signin/signout wording consistent
 * Use abstract methods in ConnectionEnd
 * Add @autostrip to registration form
+* Customize follow/unfollow messages, check for correctness before adding a message
+* Add caching, use ```django-cache-utils```
+* Add Dajax support
 
 Issues
 ======
