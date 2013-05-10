@@ -49,10 +49,10 @@
     </div>
     
     <ul class="nav nav-tabs" id="userTab">
-      <li{% if active_tab == "activity" %} class="active"{% endif %}><a data-toggle="tab" href="#activity">Activity</a></li>
-      <li{% if active_tab == "connections" %} class="active"{% endif %}><a data-toggle="tab" href="#connections">Connections</a></li>
+      <li{% if active_tab == "activity" %} class="active"{% endif %}><a data-toggle="tab" href="#activity"><i class="icon-globe"></i>Activity</a></li>
+      <li{% if active_tab == "connections" %} class="active"{% endif %}><a data-toggle="tab" href="#connections"><i class="icon-group"></i>Connections</a></li>
       {% if request.user.is_authenticated and request.user.id == user.id %}
-      <li{% if active_tab == "edit" %} class="active"{% endif %}><a data-toggle="tab" href="#edit_profile">Edit profile</a></li>
+      <li{% if active_tab == "edit" %} class="active"{% endif %}><a data-toggle="tab" href="#edit_profile"><i class="icon-pencil"></i>Edit profile</a></li>
       {% endif %}
     </ul>
     

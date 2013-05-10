@@ -37,6 +37,7 @@ Lower priority tasks
 * Customize follow/unfollow messages, check for correctness before adding a message
 * Add caching, use ```django-cache-utils```
 * Add Dajax support
+* Change color of logout text to be darker
 
 Issues
 ======
