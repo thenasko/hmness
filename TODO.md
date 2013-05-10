@@ -1,25 +1,21 @@
 TODO
 ====
 
-* Write a basic database structure, add a few examples via the admin interface
-* Extend the django user profile (see this [article](http://gistflow.com/posts/725-how-to-extend-the-behaviour-of-the-user-class-in-django-1-5))
 * Create a forgot password form/mechanism
-* Login view should redirect to the place it came from
 * Allow users to log in via Google, Facebook
-* Add [FontAwesome](http://fortawesome.github.io/Font-Awesome/) integration in order to access a wider set of icons in various sizes
 * Create a simple 404/other code error page
 * Implement "remember me" in login forms
 * The authorization page should focus correctly
 * The authorization page should pertain some data
 * Is there a way to merge /auth and /register?
 * Add location data to user/pin
-* Think about pin edit rights
+* Think about pin edit rights, follow/unfollow on behalf of pin
 * Add a creation date to connections (is there an abstract model which does that?)
 * Add url access to pin tabs
 * On tab move change url without reloading
-* Employ render_to decorator in views
 * Customize follow/unfollow messages, check for correctness before adding a message
 * In user/pin profile, clicking on follow stats should open the connections tab
+* Replace the "Log out" button in the navbar with a profile menu
 
 Lower priority tasks
 ====================
