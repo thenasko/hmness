@@ -2,7 +2,7 @@
 
 <div class="span4">
   <div class="thumbnail user-leftpane">
-    <img alt="300x300" class="user-image" src="{% static 'user-image.png' %}"></img>
+    <img class="user-image" src="{% static 'user-image.png' %}"></img>
     <div class="caption">
       {% if request.user.is_authenticated and request.user.id != user.id %}
       {% if request.user.get_profile in connections_in_only or request.user.get_profile in connections_in_out %}
