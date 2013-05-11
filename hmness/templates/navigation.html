@@ -25,7 +25,7 @@
 	    </a>
 	    <ul class="dropdown-menu">
 	      <li>
-		<a href="{% url users:logout %}">Log out</a></li>
+		<a href="{% url users:logout %}"><i class="icon-signout"></i>Log out</a></li>
 	      </li>
 	    </ul>
 	  </li>
@@ -36,8 +36,8 @@
             {% csrf_token %}
             <input name="username" class="span2" type="text" placeholder="Username">
             <input name="password" class="span2" type="password" placeholder="Password">
-            <button type="submit" class="btn btn-primary">Sign in</button>
-            <a href="{% url users:signup %}" class="btn btn-primary">Sign Up</a>
+            <button type="submit" class="btn btn-primary"><i class="icon-signin"></i> Sign in</button>
+            <a href="{% url users:signup %}" class="btn btn-primary"><i class="icon-edit"></i> Sign Up</a>
           </form>
         </div>
         {% endif %}
