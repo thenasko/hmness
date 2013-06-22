@@ -9,6 +9,8 @@ from django.template import RequestContext
 from annoying.utils import HttpResponseReload
 from annoying.decorators import render_to
 
+from actstream.models import following, followers
+
 from users.forms import LoginForm
 from users.forms import SignupForm
 
@@ -72,7 +74,7 @@ def auth(request):
     return render(request, "auth.html", context)
 
 def user(request, username, active_tab='activity'):
-    user = get_object_or_404(User, username=username)
+    user_to_show = get_object_or_404(User, username=username)
 
     # If edit tab is requested, check whether user should have access
     if (active_tab == 'edit') and (request.user.id != user.id):
@@ -80,8 +82,10 @@ def user(request, username, active_tab='activity'):
 
     context = {
         'active_page': '',
-        'user': user,
         'active_tab': active_tab,
+        'user_to_show': user_to_show,
+        'following': following(user_to_show),
+        'followers': followers(user_to_show),
         }
     return render(request, "user.html", context)
 

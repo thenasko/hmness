@@ -2,7 +2,7 @@
 
 <style type="text/css">
   .user-image-small {
-    margin: -15px 10px -15px 10px;
+    margin: -15px 5px -15px 0px;
     border: 1px solid #ccc;
     -webkit-border-radius: 4px;
        -moz-border-radius: 4px;
@@ -21,7 +21,6 @@
       <a class="brand" href="{% url home %}">hmness</a>
       <div class="nav-collapse collapse">
         <ul class="nav">
-          <li{% ifequal active_page "home" %} class="active"{% endifequal %}><a href="{% url home %}"> <i class="icon-home"></i>Home</a></li>
           <li{% ifequal active_page "about" %} class="active"{% endifequal %}><a href="{% url about %}"><i class="icon-folder-open"></i>About</a></li>
           <li{% ifequal active_page "contact" %} class="active"{% endifequal %}><a href="{% url contact %}"><i class="icon-envelope-alt"></i>Contact</a></li>
         </ul>

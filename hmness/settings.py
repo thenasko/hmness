@@ -146,6 +146,8 @@ INSTALLED_APPS = (
     'bootstrap_toolkit',
     # Django-annoying
     'annoying',
+    # Django-activity-stream
+    'actstream',
     # hmness applications
     'users',
     'pins',
@@ -196,3 +198,12 @@ from django.db import models
 
 CONNECTIONS_MODELS_LIMIT = models.Q(app_label='users', model='userprofile') | models.Q(app_label='pins', model='pin')
 
+# Action stream settings
+ACTSTREAM_SETTINGS = {
+    'MODELS': ('auth.user', 'pins.pin'),
+    # 'MANAGER': 'myapp.streams.MyActionManager',
+    # 'FETCH_RELATIONS': True,
+    # 'USE_PREFETCH': True,
+    # 'USE_JSONFIELD': True,
+    # 'GFK_FETCH_DEPTH': 1,
+}

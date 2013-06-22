@@ -16,6 +16,11 @@ TODO
 * Replace the "Log out" button in the navbar with a profile menu
 * Remove url tabs persistence code for user.html/pin.html
 * Pin/user tabs should use AJAX
+* Make navbar thinner, change the size of user-image-small
+* Navbar dropdown should appear on hover
+* Decrease ```@navbarHeight``` and recompile bootstrap-cosmo
+* Redo the connections tab with actions stream app
+* Update the follow/unfollow button in the pins page
 
 Lower priority tasks
 ====================

@@ -10,7 +10,7 @@ from users.models import UserProfile
 @render_to('home.html')
 def home(request):
     return {
-        'active_page': 'home',
+        #        'active_page': 'home',
         'users': User.objects.all(),
         'pins': PIN.objects.all(),
         }

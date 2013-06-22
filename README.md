@@ -20,6 +20,8 @@ The current prerequisites of the project are
 * python-django-dajaxice, python-django-dajax
 * django-bootstrap-toolkit (to install use ```pip install django-bootstrap-toolkit```)
 * django-annoying (to install use ```pip install django-annoying```)
+* django-jsonfield (to install use ```pip install django-jsonfield```)
+* django-activity-stream (to install use ```pip install django-activity-stream```)
 
 Use the following command to check out the repository.
 

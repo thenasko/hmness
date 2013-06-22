@@ -1,21 +1,10 @@
 {% extends "base.html" %}
 
 {% load staticfiles %}
-{% load connections %}
 {% load bootstrap_toolkit %}
 
 {% block head %}
 <style type="text/css">
-  .user-leftpane {
-  /* border-radius: 10px; */
-  }
-
-  .user-image {
-  width: 300px;
-  height 300px;
-  /* border-radius: 10px; */
-  }
-
   .connection-stats {
   font-size: 18px;
   /* font-weight: bold; */
@@ -29,11 +18,13 @@
 
 {% bootstrap_messages %}
 
-{% if request.user.id == user.id %}
-{% connections_init user.get_profile self_name='you' be_verb='are' can_edit='True' %}
+{% comment %}
+{% if request.user.id == user_to_show.id %}
+{% connections_init user_to_show.get_profile self_name='you' be_verb='are' can_edit='True' %}
 {% else %}
-{% connections_init user.get_profile  %}
+{% connections_init user_to_show.get_profile  %}
 {% endif %}
+{% endcomment %}
 
 <div class="row">
   {% include "user_pane.html" %}
@@ -42,8 +33,8 @@
     <div class="navbar">
       <div class="navbar-inner">
         <ul class="nav">
-          <li><a><span class="connection-stats">{{ connections_in_count }}</span>&nbsp;&nbsp;followers</a></li>
-          <li><a><span class="connection-stats">{{ connections_out_count }}</span>&nbsp;&nbsp;following</a></li>
+          <li><a><span class="connection-stats">{{ user_to_show.get_profile.followers_count }}</span>&nbsp;&nbsp;followers</a></li>
+          <li><a><span class="connection-stats">{{ user_to_show.get_profile.following_count }}</span>&nbsp;&nbsp;following</a></li>
         </ul>
       </div>
     </div>
@@ -51,7 +42,7 @@
     <ul class="nav nav-tabs" id="userTab">
       <li{% if active_tab == "activity" %} class="active"{% endif %}><a data-toggle="tab" href="#activity"><i class="icon-globe"></i>Activity</a></li>
       <li{% if active_tab == "connections" %} class="active"{% endif %}><a data-toggle="tab" href="#connections"><i class="icon-group"></i>Connections</a></li>
-      {% if request.user.is_authenticated and request.user.id == user.id %}
+      {% if request.user.is_authenticated and request.user.id == user_to_show.id %}
       <li{% if active_tab == "edit" %} class="active"{% endif %}><a data-toggle="tab" href="#edit_profile"><i class="icon-pencil"></i>Edit profile</a></li>
       {% endif %}
     </ul>
@@ -61,9 +52,17 @@
         Activity
       </div>
       <div class="tab-pane{% if active_tab == 'connections' %} active{% endif %}" id="connections">
-        {% connections_list %}
+        <p>Following:</p>
+        {% for a in following %}
+        <p>{{ a }}</p>
+        {% endfor %}
+
+        <p>Followers:</p>
+        {% for a in followers %}
+        <p>{{ a }}</p>
+        {% endfor %}
       </div>
-      {% if request.user.is_authenticated and request.user.id == user.id %}
+      {% if request.user.is_authenticated and request.user.id == user_to_show.id %}
       <div class="tab-pane{% if active_tab == 'edit' %} active{% endif %}" id="edit_profile">
         Edit profile
       </div>
